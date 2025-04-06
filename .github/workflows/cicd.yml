@@ -6,6 +6,10 @@ on:
       - main  
   workflow_dispatch:
 
+env:
+  docker_username: chedi1
+  docker_image_name: spring
+  docker_image_tag: v1.0.0
 
 jobs:
   build-and-push-to-docker-hub:
@@ -37,5 +41,5 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags: chedi1/spring:v1.0.0
+          tags: ${{ env.docker_username }}/${{ env.docker_image_name }}:${{ env.docker_image_tag }}
           context: ./spring
