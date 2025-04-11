@@ -13,5 +13,5 @@ WORKDIR /app
 RUN useradd -ms /bin/bash myuser
 USER myuser
 COPY --from=builder --chown=myuser:myuser /app/target/*.jar run.jar
-EXPOSE 8080
+EXPOSE 8081
 ENTRYPOINT ["java", "-jar", "/app/run.jar"]
