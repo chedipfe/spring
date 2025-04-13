@@ -28,6 +28,7 @@ public class SecurityConfig {
             .authorizeHttpRequests(authorizeHttpRequests -> authorizeHttpRequests
                 .requestMatchers("/api/sim-card-subscriptions/**").hasRole("USER")
                 .requestMatchers("/swagger-ui.html", "/swagger-ui/**", "/v3/api-docs", "/v3/api-docs/**").permitAll() 
+                .requestMatchers("/actuator/health", "/actuator/metrics", "/actuator/prometheus").permitAll()
                 .anyRequest()
                 .authenticated()  
                 )
